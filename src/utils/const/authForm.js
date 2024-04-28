@@ -12,6 +12,8 @@ export const loginForm =[
     id:2,
     title: "Şifre",
     icon : <Ionicons name="key-outline" size={20} color="#868E96" />,
+    isSecure:true,
+    SecureIcon: <Feather name="eye" size={20} color="868E96" />
 }
 ];
 
@@ -34,12 +36,19 @@ export const registerForm =[
     {
         id:4,
         title: "Şifre",
-        icon :<Ionicons name="key-outline" size={20} color="#868E96" />, 
+        icon :<Ionicons name="key-outline" size={20} color="#868E96" />,
+        isSecure:true, 
+        SecureIcon: <Feather name="eye" size={20} color="868E96" />
+
     },
     {
         id:5,
         title: "Şifre Tekrar",
         icon :<Ionicons name="key-outline" size={20} color="#868E96" />,
-    }
+        isSecure:true,
+        SecureIcon: <Feather name="eye" size={20} color="868E96" />
+
+    },
+    
         
 ];

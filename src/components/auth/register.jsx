@@ -23,7 +23,7 @@ export default function Register({navigation}){
         data={registerForm}
         renderItem={({item}) => {
             <View className='bg-blue-500  mt-5 w-full'>
-            <Input title={item.title} icon={item.icon}/>
+            <Input title={item.title} icon={item.icon} isSecure= {item.isSecure}/>
             </View>
         }}
         keyExtractor={item => item.id}

@@ -1,9 +1,8 @@
 import {Text,View } from "react-native";
 import React from "react";
-export default function RegisterScreen(){
+import Register from "../components/auth/register";
+export default function RegisterScreen({navigation}){
     return(
-        <View>
-            <Text>RegisterScreen</Text>
-        </View>
+     <Register navigation={navigation}/>
     )
 }

@@ -7,7 +7,7 @@ export const loginForm =[
     id:1,
     title: "E-Mail adresi",
     icon : <Feather name="mail" size={20} color="#868E96" />
-},
+}, 
 {
     id:2,
     title: "Şifre",

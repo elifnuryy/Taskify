@@ -1,10 +1,16 @@
 import {View,Image,Text,TouchableOpacity,FlatList} from 'react-native';
-import React from 'react';
+import React, { useState,useEffect } from 'react';
 import Input from '../shared/input'
 import Button from '../shared/Button';
 import { loginForm } from '../../utils/const/authForm';
 
 export default function Login({navigation}){
+    
+    const[formInfo,setFormInfo] = useState({
+        email:'',
+        password:'',
+    })
+    useEffect (() =>console.log(formInfo),[formInfo])
     return(
         <View style='bg-white flex-1 items-center justify-center px-5'>
             <View>
@@ -22,8 +28,8 @@ export default function Login({navigation}){
         <FlatList
             data={loginForm}
             renderItem={({item}) => {
-                <View className='bg-blue-500  mt-5 w-full'>
-                <Input title={item.title} icon={item.icon} isSecure= {item.isSecure}/>
+                <View className=' mt-5 w-full'>
+                <Input title={item.title} icon={item.icon} isSecure= {item.isSecure} secureIcon={item.SecureIcon}/>
                 </View>
             }}
             keyExtractor={item => item.id}
@@ -39,6 +45,6 @@ export default function Login({navigation}){
                     <Text className='font-[600] m1-[7px] text-primary underline'>Kayıt olun</Text>
                 </TouchableOpacity>
             </View>
-    </View>
-    )
+    </View>
+    )
 }

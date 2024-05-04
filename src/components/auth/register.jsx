@@ -1,36 +1,41 @@
 import { Text,View, TouchableOpacity,FlatList,Image } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Input from '../shared/input';
 import Button from '../shared/Button';
 import { registerForm } from '../../utils/const/authForm';
 
 export default function Register({navigation}){
+    const[formInfo, setFormInfo] = useState({
+        name: '',
+        surname: '',
+        email:'',
+        password:'',
+        rpassword:''
+    })
+
+    useEffect (() =>console.log(formInfo),[formInfo])
     return(
-        <View style='bg-white flex-1 items-center justify-center px-5'>
+        <View className='bg-white flex-1 items-center justify-center px-5'>
         <View>
             <Image 
                 source={require('../../..assets/images/auth-logo.png')}
             />
         </View>
         
-        <View className='mt-5 w-full'>
-            <Input title={'E-mail Adresi'}/>
-
-        </View>
         
     <View className = 'w-full'>
     <FlatList
         data={registerForm}
         renderItem={({item}) => {
-            <View className='bg-blue-500  mt-5 w-full'>
-            <Input title={item.title} icon={item.icon} isSecure= {item.isSecure}/>
+            <View className=' mt-5 w-full'>
+            <Input item={item} setFormInfo = {setFormInfo} formInfo = {formInfoInfo}/>
             </View>
         }}
         keyExtractor={item => item.id}
     />
     </View>
         
-            <View className='bg-blue-500 mt-5 w-full'>
+            <View className='w-full mt-5'>
         <Button title={'Kayıt Ol'}/>
         </View>
         <View className='w-full mt-5 flex-row'>
@@ -42,5 +47,3 @@ export default function Register({navigation}){
 </View>
 )
 }
-   
-

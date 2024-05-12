@@ -1,18 +1,23 @@
-import {StyleSheet,Text,View } from 'react-native'
 import React from 'react'
 import UserStack from './UserStack';
 import AuthStack from './AuthStack';
-export default function NavigationStack(){
-    const islogin = false;
-    return(
-        <>
-        {islogin ?
-            <UserStack/>
-       :
-       <AuthStack/>
-        }
-        </>
-    )
-}
+import Loader from '../components/shared/Loader';
 
-const styles = StyleSheet.create({})
+
+
+
+export default function NavigationStack() {
+  const { loader } = useSelector((state) => state.general);
+  const isLogin = false;
+  //const loader = true;
+  return (
+    <>
+    {
+      isLogin ? <UserStack /> : <AuthStack />
+    }
+    {
+      loader && <Loader Loader={loader} />
+    }
+    </>
+  )
+}

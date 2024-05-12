@@ -1,16 +1,19 @@
 import {View,Image,Text,TouchableOpacity,FlatList} from 'react-native';
-import React, { useState,useEffect } from 'react';
+import React  from 'react';
 import Input from '../shared/input'
 import Button from '../shared/Button';
 import { loginForm } from '../../utils/const/authForm';
+import { setLoader } from '../../redux/generalSlice';
+import { useDispatch } from 'react-redux';
 
 export default function Login({navigation}){
-    
-    const[formInfo,setFormInfo] = useState({
-        email:'',
-        password:'',
-    })
-    useEffect (() =>console.log(formInfo),[formInfo])
+    const dispatch = useDispatch();
+
+    const changePage = () => {
+        dispatch(setLoader());
+        navigation.navigate('Register');
+    }
+
     return(
         <View style='bg-white flex-1 items-center justify-center px-5'>
             <View>
@@ -29,18 +32,19 @@ export default function Login({navigation}){
             data={loginForm}
             renderItem={({item}) => {
                 <View className=' mt-5 w-full'>
-                <Input title={item.title} icon={item.icon} isSecure= {item.isSecure} secureIcon={item.SecureIcon}/>
+                    <Input item={item} />
                 </View>
             }}
             keyExtractor={item => item.id}
         />
         </View>
             
-                <View className='bg-blue-500 mt-5 w-full'>
+        <TouchableOpacity onPress={changePage} className='w-full mt-5'>
             <Button title={'Giriş Yap'}/>
-            </View>
-            <View className='w-full mt-5 flex-row'>
-                <Text className='text-primary'>Hala bir hesabınız yok mu?</Text>
+        </TouchableOpacity>
+        
+        <View className='w-full mt-5 flex-row'>
+            <Text className='text-primary'>Hala bir hesabınız yok mu?</Text>
                 <TouchableOpacity onPress={() => navigation.navigate('Register')}>
                     <Text className='font-[600] m1-[7px] text-primary underline'>Kayıt olun</Text>
                 </TouchableOpacity>

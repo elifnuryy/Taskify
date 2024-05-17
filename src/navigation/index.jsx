@@ -8,7 +8,8 @@ import Loader from '../components/shared/Loader';
 
 export default function NavigationStack() {
   const { loader } = useSelector((state) => state.general);
-  const isLogin = false;
+  const isLogin = true;
+
   //const loader = true;
   return (
     <>

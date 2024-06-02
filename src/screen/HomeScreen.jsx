@@ -6,6 +6,7 @@ export default function HomeScreen() {
     return(
         <SafeAreaView className='flex-1'>
         <Header />
+        <List />
        </SafeAreaView>
     )
 }

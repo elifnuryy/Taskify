@@ -52,6 +52,41 @@ export default function UserStack() {
 
       }}
       />
+      <Tab.Screen name= "AddTask" component={AddTaskScreen}
+      options={{
+        tabBarLabel: () => (<Text className='text-[11px] text-main font-medium'>Task Ekle</Text>),
+        tabBarIcon: () => (<Entypo name="squared-plus" size={28} color="#3B5BDB" />),
+      }}
+      />
+      <Tab.Screen name="Completed" component = {CompletedScreen}
+      options={{
+        tabBarLabel: ({focused}) => (
+          focused
+          ?
+          <Text className='text-[11px] text-main font-medium'>Tamamlanan</Text>
+          :
+          <Text className= 'text[11px] text-secondary'>Tamamlanan</Text>
+        ),
+        tabBarIcon: ({focused}) => (
+          focused
+          ?
+          <MaterialIcons name="playlist-add-check" size={28} color="#3B5BDB"/>
+          :
+          <MaterialIcons name="playlist-add-check" size={28} color="#868E96"/>
+        ),
+      }}
+      />
+        <Tab.Screen name="Profile" component={Profile}
+        options={{
+          tabBarLabel: ({ focused}) => (
+            focused
+            ?
+            <Text className='text-[11px] text-main font-medium'>Profil</Text>
+            : 
+            <Text className='text-[11px] text-secondary'>Profil</Text>
+          ),
+        }}
+      />
       <Tab.Screen name="AddTask" component={AddTaskScreen} />
       <Tab.Screen name="Completed" component={CompletedScreen} />
       <Tab.Screen name="Profile" component={Profile} />

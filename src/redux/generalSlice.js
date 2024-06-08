@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 
 const initialState = {
-loader: false,
+  loader: false,
 }
 
 export const generalSlice = createSlice({
@@ -15,6 +15,6 @@ export const generalSlice = createSlice({
   },
 })
 
-export const {setLoader} = generalSlice.actions
+export const { setLoader } = generalSlice.actions
 
 export default generalSlice.reducer

@@ -1,11 +1,10 @@
 import { Feather } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 
-
 export const loginForm = [
     {
         id: 1,
-        title: "E-Mail adresi",
+        title: "E-Mail Adresi",
         type: 'email',
         icon: <Feather name="mail" size={20} color="#868E96" />
     },
@@ -16,8 +15,8 @@ export const loginForm = [
         icon: <Ionicons name="key-outline" size={20} color="#868E96" />,
         isSecure: true,
         SecureIcon: {
-            visible: <Feather name="eye" size={20} color="868E96" />,
-            notVisible: <Feather name="eye-off" size={20} color="868E96" />
+            visible: <Feather name="eye" size={20} color="#868E96" />,
+            notVisible: <Feather name="eye-off" size={20} color="#868E96" />
         },
     }
 ];
@@ -48,8 +47,8 @@ export const registerForm = [
         icon: <Ionicons name="key-outline" size={20} color="#868E96" />,
         isSecure: true,
         SecureIcon: {
-            visible: <Feather name="eye" size={20} color="868E96" />,
-            notVisible: <Feather name="eye-off" size={20} color="868E96" />
+            visible: <Feather name="eye" size={20} color="#868E96" />,
+            notVisible: <Feather name="eye-off" size={20} color="#868E96" />
         },
     },
     {
@@ -59,8 +58,8 @@ export const registerForm = [
         icon: <Ionicons name="key-outline" size={20} color="#868E96" />,
         isSecure: true,
         SecureIcon: {
-            visible: <Feather name="eye" size={20} color="868E96" />,
-            notVisible: <Feather name="eye-off" size={20} color="868E96" />
+            visible: <Feather name="eye" size={20} color="#868E96" />,
+            notVisible: <Feather name="eye-off" size={20} color="#868E96" />
         },
     },
 ];

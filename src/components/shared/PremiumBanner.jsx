@@ -1,22 +1,69 @@
-import { Text, View, Image, TouchableOpacity } from 'react-native'
-import React from 'react'
-import PremiumImageSvg from './PremiumImageSvg'
-export default function  PremiumBanner(){
-    return (
-        <View className='mt-5 bg-main rounded-[6px] mx-[10px] h-[125px] px-[10px] items-center flex-row justify-between'>
-          <View>
-            <View>
-          <Text className='text-[13px] text-white font-medium mb-[3px]'>Premium'a geçmenin tam zamanı</Text>
-          <Text className='text-[13px] text-white'>Premium ile tariflerinizi ön plana çıkarın</Text>
-          </View>
-          <TouchableOpacity className='mt-[10px] bg-white justify-center items-center w-1/3 h-[28px] rounded-[24px]'>
-            <text className='text-[13px] text-primary font-medium'>7 gün ücretsiz</text>
-          </TouchableOpacity>
-        </View>
-        <View className='mt-5'>
-            <PremiumImageSvg />
-        </View>
-    </View>
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
 
-    )
+export default function PremiumBanner({ onPress }) {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handlePress = () => {
+    
+    alert('Premium özelliklere ulaşmak için uygulamamızı yükseltin!');
+  };
+
+  return (
+    <TouchableOpacity
+      style={[styles.container, isHovered && styles.hovered]}
+      onPress={onPress}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <Text style={styles.text}>🌟 Premium İçerik 🌟</Text>
+      <Text style={styles.subtext}>Özel özellikler için şimdi yükseltin!</Text>
+      <Text style={[styles.freeTrial, isHovered && styles.freeTrialHovered]} onPress={handlePress}>
+        7 GÜN BOYUNCA ÜCRETSİZ
+      </Text>
+    </TouchableOpacity>
+  );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#FFD700', 
+    padding: 20,
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginHorizontal: 20,
+    marginVertical: 10,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 8,
+  },
+  text: {
+    color: '#333', 
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 8,
+  },
+  subtext: {
+    color: '#555', 
+    fontSize: 18,
+    marginBottom: 12,
+  },
+  freeTrial: {
+    color: '#009688', 
+    fontSize: 16,
+    fontStyle: 'italic',
+    textDecorationLine: 'underline', 
+  },
+  hovered: {
+    backgroundColor: '#FFA500', 
+  },
+  freeTrialHovered: {
+    color: '#FFD700', 
+  },
+});
